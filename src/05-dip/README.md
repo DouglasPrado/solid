@@ -4,29 +4,29 @@
 
 > **A regra de negócio não escolhe as peças: ela recebe as peças prontas, por um "encaixe padrão".**
 
-## 🔌 Exemplo do dia a dia
+## Exemplo do dia a dia
 
 Pense num **abajur**.
 
-- ❌ **Jeito errado:** o fio do abajur é **soldado** direto na fiação da parede.
+- **Jeito errado:** o fio do abajur é **soldado** direto na fiação da parede.
   Quer mudar ele de lugar? Chama o eletricista. Quer testar a lâmpada? Precisa da parede inteira.
-- ✅ **Jeito certo:** o abajur tem **plugue** e a parede tem **tomada**.
+- **Jeito certo:** o abajur tem **plugue** e a parede tem **tomada**.
   Liga em qualquer tomada, muda de lugar quando quiser, testa em qualquer lugar.
 
 A **tomada** é o "encaixe padrão". O abajur não sabe (nem quer saber) de onde vem a energia.
 
-## 📍 No nosso check-in
+## No nosso check-in
 
 Quando alguém faz check-in, o sistema **guarda no banco** e **avisa pelo WhatsApp**.
 
-### ❌ Antes — `antes/`
+### Antes — `antes/`
 
 A classe cria sozinha as peças que usa — fio soldado na parede:
 
 ```ts
 class CheckinService {
-  private db = new PostgresClient(); // ⚠️ soldado
-  private whatsapp = new WhatsAppApi(); // ⚠️ soldado
+  private db = new PostgresClient(); //  soldado
+  private whatsapp = new WhatsAppApi(); //  soldado
 }
 ```
 
@@ -35,13 +35,13 @@ class CheckinService {
 - Quer trocar WhatsApp por e-mail? **Edita a classe.**
 - Quer testar? Precisa de **banco de verdade** e vai **mandar WhatsApp de verdade**.
 
-### ✅ Depois — `depois/`
+### Depois — `depois/`
 
 **1. Criamos as "tomadas"** (o que a regra de negócio precisa, sem dizer como):
 
 ```ts
-interface CheckinRepository { salvar(...) }   // "preciso de algo que guarde"
-interface Notificador       { enviar(...) }   // "preciso de algo que avise"
+interface CheckinRepository { salvar(...) } // "preciso de algo que guarde"
+interface Notificador { enviar(...) } // "preciso de algo que avise"
 ```
 
 **2. A classe recebe as peças prontas** (no construtor), em vez de criar:
@@ -65,7 +65,7 @@ O `CheckinService` é **o mesmo** nos três casos. Nenhuma linha dele mudou.
 ### Por que o nome é "inversão"?
 
 ```
-ANTES:  CheckinService ──usa──▶ PostgresClient
+ANTES: CheckinService ──usa──▶ PostgresClient
         (a regra de negócio depende da peça)
 
 DEPOIS: CheckinService ──usa──▶ «tomada» ◀──encaixa── PostgresCheckinRepository
@@ -74,7 +74,7 @@ DEPOIS: CheckinService ──usa──▶ «tomada» ◀──encaixa── Post
 
 A seta que antes ia **da regra para a peça** agora vai **da peça para a regra**. Ela foi **invertida**.
 
-## 🧪 Bônus: teste fica fácil
+## Bônus: teste fica fácil
 
 Na pasta `fakes/` há duas peças de mentira:
 
@@ -83,18 +83,18 @@ Na pasta `fakes/` há duas peças de mentira:
 
 Assim dá para testar o check-in **sem banco e sem WhatsApp de verdade**.
 
-## 🤔 Como saber se estou fazendo errado?
+## Como saber se estou fazendo errado?
 
 - Sua regra de negócio tem `new` de banco, de cliente HTTP ou de SDK lá dentro.
 - Para testar uma regra simples, você precisa subir banco ou chamar API externa.
 - Trocar de fornecedor (ex.: Twilio → Zenvia) obriga a mexer na regra de negócio.
 
-> 💡 **Palavras que você vai ouvir por aí:**
+> **Palavras que você vai ouvir por aí:**
 >
 > - **Injeção de dependência** = entregar as peças prontas pelo construtor (o que fizemos aqui).
 > - **Container de DI** (NestJS, tsyringe…) = ferramenta que faz essa entrega automaticamente.
 
-## 📁 Arquivos
+## Arquivos
 
 ```
 05-dip/
@@ -118,7 +118,7 @@ Assim dá para testar o check-in **sem banco e sem WhatsApp de verdade**.
     └── index.ts                             ← onde a gente "liga na tomada"
 ```
 
-## ▶️ Rodando
+## Rodando
 
 ```bash
 npm run dip:antes

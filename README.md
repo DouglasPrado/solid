@@ -1,20 +1,20 @@
 # SOLID na prática com TypeScript — exemplo: Check-in
 
 SOLID são **5 dicas** para escrever código fácil de mudar sem quebrar o que já funciona.
-Cada letra é uma dica. Aqui cada uma tem um exemplo **antes ❌ / depois ✅** usando um **check-in**
+Cada letra é uma dica. Aqui cada uma tem um exemplo de **antes e depois** usando um **check-in**
 (inspirado no check-in do Albert, bem simplificado e sem código real do produto).
 
-## 🧠 As 5 dicas em 30 segundos
+## As 5 dicas em 30 segundos
 
-| Letra | Nome                     | Exemplo do dia a dia  | Em uma frase                                             |
-| :---: | ------------------------ | --------------------- | -------------------------------------------------------- |
-| **S** | Responsabilidade única   | 🍽️ Restaurante        | Cada classe cuida de **um assunto só**                   |
-| **O** | Aberto/Fechado           | 📱 Celular e apps     | Para coisa nova, **crie** — não **edite** o que funciona |
-| **L** | Substituição de Liskov   | 🚗 Locadora de carros | A classe filha tem que **cumprir o que a mãe promete**   |
-| **I** | Segregação de interfaces | 📺 Controle remoto    | Não obrigue ninguém a ter **botões que não usa**         |
-| **D** | Inversão de dependência  | 🔌 Tomada             | **Receba as peças prontas**, não solde na parede         |
+| Letra | Nome                     | Exemplo do dia a dia | Em uma frase                                             |
+| :---: | ------------------------ | -------------------- | -------------------------------------------------------- |
+| **S** | Responsabilidade única   | Restaurante          | Cada classe cuida de **um assunto só**                   |
+| **O** | Aberto/Fechado           | Celular e apps       | Para coisa nova, **crie** — não **edite** o que funciona |
+| **L** | Substituição de Liskov   | Locadora de carros   | A classe filha tem que **cumprir o que a mãe promete**   |
+| **I** | Segregação de interfaces | Controle remoto      | Não obrigue ninguém a ter **botões que não usa**         |
+| **D** | Inversão de dependência  | Tomada               | **Receba as peças prontas**, não solde na parede         |
 
-## 📍 O check-in usado nos exemplos
+## O check-in usado nos exemplos
 
 Uma pessoa tem um **horário marcado** e faz **check-in** quando chega:
 
@@ -23,7 +23,7 @@ Uma pessoa tem um **horário marcado** e faz **check-in** quando chega:
 - dá para fazer por **QR Code**, **GPS**, **recepção** ou **online**;
 - depois de confirmado: o sistema **guarda**, **avisa a pessoa** (WhatsApp) e **anota no log**.
 
-## 📁 Como está organizado
+## Como está organizado
 
 | Pasta                                    | Letra | O que mostra                                                                            |
 | ---------------------------------------- | :---: | --------------------------------------------------------------------------------------- |
@@ -39,16 +39,16 @@ Toda pasta segue o mesmo padrão:
 ```
 0X-principio/
 ├── README.md     ← a explicação (comece por aqui)
-├── antes/        ← ❌ o código com o problema
-│   └── index.ts  ←    o arquivo que roda o exemplo
-└── depois/       ← ✅ o código arrumado
-    └── index.ts  ←    o arquivo que roda o exemplo
+├── antes/        ← o código com o problema
+│   └── index.ts  ← o arquivo que roda o exemplo
+└── depois/       ← o código arrumado
+    └── index.ts  ← o arquivo que roda o exemplo
 ```
 
 - **Um arquivo para cada classe, interface ou tipo.**
 - O `index.ts` é quem monta tudo e roda o exemplo.
 
-### 🏷️ Como os arquivos são nomeados
+### Como os arquivos são nomeados
 
 Só de olhar o nome do arquivo você já sabe o que tem dentro:
 
@@ -63,22 +63,22 @@ e `postgres-checkin-repository.ts` é a **classe** que encaixa nela.
 
 **Ordem de leitura sugerida:** README da pasta → `antes/` → `depois/` → rode os dois e compare.
 
-## ▶️ Como rodar
+## Como rodar
 
 ```bash
 npm install
 
-npm run srp:antes   && npm run srp:depois
-npm run ocp:antes   && npm run ocp:depois
-npm run lsp:antes   && npm run lsp:depois
-npm run isp:antes   && npm run isp:depois
-npm run dip:antes   && npm run dip:depois
+npm run srp:antes && npm run srp:depois
+npm run ocp:antes && npm run ocp:depois
+npm run lsp:antes && npm run lsp:depois
+npm run isp:antes && npm run isp:depois
+npm run dip:antes && npm run dip:depois
 npm run tudo-junto:antes && npm run tudo-junto:depois
 
-npm run exemplos    # roda todos os exemplos de uma vez
+npm run exemplos # roda todos os exemplos de uma vez
 ```
 
-## 🧹 Padrões do projeto
+## Padrões do projeto
 
 Para o código ficar sempre com a mesma cara, não importa quem escreveu:
 
@@ -94,13 +94,13 @@ Para o código ficar sempre com a mesma cara, não importa quem escreveu:
 **Antes de subir alguma mudança, rode:**
 
 ```bash
-npm run check   # typecheck + lint + nomes + formatação + todos os exemplos
+npm run check # typecheck + lint + nomes + formatação + todos os exemplos
 ```
 
-> 💡 No VS Code, instale as extensões recomendadas (ele sugere sozinho ao abrir o projeto).
+> No VS Code, instale as extensões recomendadas (ele sugere sozinho ao abrir o projeto).
 > Assim o código é formatado e corrigido automaticamente toda vez que você salva.
 
-## 📖 Glossário (palavras que aparecem no código)
+## Glossário (palavras que aparecem no código)
 
 | Palavra                        | Significa                                                                                                                                              |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -114,7 +114,7 @@ npm run check   # typecheck + lint + nomes + formatação + todos os exemplos
 | **Domínio**                    | As regras do negócio: horário do check-in, não repetir check-in etc.                                                                                   |
 | **Fake / Spy**                 | Peças de mentira usadas em teste, para não precisar de banco ou WhatsApp de verdade.                                                                   |
 
-## ✅ Pergunta rápida para o code review
+## Pergunta rápida para o code review
 
 | Letra | Pergunte                                                                              |
 | :---: | ------------------------------------------------------------------------------------- |
@@ -124,7 +124,7 @@ npm run check   # typecheck + lint + nomes + formatação + todos os exemplos
 | **I** | "Tem método **vazio** ou que só dá erro porque a interface obrigou?"                  |
 | **D** | "A regra de negócio dá `new` em **banco, API ou SDK** lá dentro?"                     |
 
-## 📚 Referências
+## Referências
 
 - Robert C. Martin — _Clean Architecture_ (2017), Parte III: "Design Principles". Livro, sem link público oficial.
 - Robert C. Martin — _Design Principles and Design Patterns_ (2000): https://web.archive.org/web/20150906155800/http://www.objectmentor.com/resources/articles/Principles_and_Patterns.pdf

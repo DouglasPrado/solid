@@ -2,25 +2,25 @@
 
 ## Em uma frase
 
-> **Se uma classe diz que é "filha" de outra, ela tem que cumprir TUDO o que a "mãe" promete.**
+> **Se uma classe é "filha" de outra, ela precisa cumprir tudo o que a "mãe" promete.**
 
 O nome vem de Barbara Liskov, a cientista que descreveu a ideia.
 
-## 🚗 Exemplo do dia a dia
+## Exemplo do dia a dia
 
 Você vai numa locadora e aluga **"um carro"**. Não importa o modelo: você espera que ele **ligue, acelere e freie**.
 
 Agora imagine que te entregam um carro que, ao frear, mostra:
-_"Erro: este modelo não tem freio."_ 💥
+_"Erro: este modelo não tem freio."_
 
 O problema **não é seu**. Esse veículo **não deveria estar na locadora como "carro"**, porque não cumpre o que todo carro promete.
 
-## 📍 No nosso check-in
+## No nosso check-in
 
 Todo check-in era presencial: tinha **lugar no mapa** e **catraca**.
 Então surgiu o check-in **online** (atendimento por vídeo).
 
-### ❌ Antes — `antes/`
+### Antes — `antes/`
 
 Alguém fez o online ser "filho" do check-in normal:
 
@@ -31,8 +31,8 @@ class Checkin {
 }
 
 class CheckinOnline extends Checkin {
-  obterLocalizacao() { throw new Error('Online não tem localização!'); } // 💥
-  liberarCatraca()  { throw new Error('Online não tem catraca!'); }      // 💥
+  obterLocalizacao() { throw new Error('Online não tem localização!'); } //
+  liberarCatraca()  { throw new Error('Online não tem catraca!'); }      //
 }
 ```
 
@@ -50,7 +50,7 @@ if (c instanceof CheckinOnline) {
 
 Agora **todo lugar** do sistema precisa lembrar dessa exceção.
 
-### ✅ Depois — `depois/`
+### Depois — `depois/`
 
 Fizemos um **combinado** com só o que **todos** conseguem cumprir:
 
@@ -71,23 +71,23 @@ for (const c of checkins) {
 }
 ```
 
-## 🤔 Como saber se estou fazendo errado?
+## Como saber se estou fazendo errado?
 
 - Uma classe filha tem método que só faz `throw new Error('não suportado')`.
 - Uma classe filha tem método **vazio**, que "finge" que fez algo.
 - Aparece `instanceof` ou `if (tipo === ...)` para tratar uma filha diferente.
 
-> 💡 **Dica:** "online **é um** check-in" é verdade no mundo real, mas isso não garante que a herança está certa no código.
-> A pergunta certa é: **"ele funciona em TODO lugar onde a mãe funciona?"**
+> **Dica:** "online **é um** check-in" é verdade no mundo real, mas isso não garante que a herança está certa no código.
+> A pergunta certa é: **"ele funciona em todo lugar onde a mãe funciona?"**
 
-## 📁 Arquivos
+## Arquivos
 
 ```
 03-lsp/
 ├── antes/
 │   ├── checkin.ts            ← a "mãe" que promete demais
 │   ├── checkin-presencial.ts
-│   ├── checkin-online.ts     ← 💥 a "filha" que não cumpre
+│   ├── checkin-online.ts     ← a "filha" que não cumpre
 │   ├── processar-checkins.ts
 │   ├── coordenada-type.ts
 │   └── index.ts
@@ -100,9 +100,9 @@ for (const c of checkins) {
     └── index.ts
 ```
 
-## ▶️ Rodando
+## Rodando
 
 ```bash
-npm run lsp:antes    # vai mostrar o erro
-npm run lsp:depois   # funciona com os dois
+npm run lsp:antes # vai mostrar o erro
+npm run lsp:depois # funciona com os dois
 ```

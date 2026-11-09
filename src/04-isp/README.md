@@ -6,23 +6,23 @@
 
 Melhor várias listas pequenas de obrigações do que uma lista gigante.
 
-## 📺 Exemplo do dia a dia
+## Exemplo do dia a dia
 
 Pense num **controle remoto com 50 botões**, em que metade não faz nada na sua TV.
 Você aperta "Netflix", nada acontece… quebrou? É assim mesmo? Ninguém sabe.
 
 Um controle bom tem **só os botões que funcionam** naquela TV.
 
-## 📍 No nosso check-in
+## No nosso check-in
 
 O check-in pode ser feito em dois aparelhos:
 
-| Aparelho             | Lê QR Code | Tem GPS | Imprime | Manda notificação |
-| -------------------- | :--------: | :-----: | :-----: | :---------------: |
-| 🖥️ Totem da recepção |     ✅     |   ❌    |   ✅    |        ❌         |
-| 📱 App no celular    |     ✅     |   ✅    |   ❌    |        ✅         |
+| Aparelho          | Lê QR Code | Tem GPS | Imprime | Manda notificação |
+| ----------------- | :--------: | :-----: | :-----: | :---------------: |
+| Totem da recepção |    Sim     |   Não   |   Sim   |        Não        |
+| App no celular    |    Sim     |   Sim   |   Não   |        Sim        |
 
-### ❌ Antes — `antes/`
+### Antes — `antes/`
 
 Uma lista única de obrigações para **todo** aparelho:
 
@@ -41,7 +41,7 @@ Resultado:
 - O **celular** é obrigado a ter "impressora" → dá erro.
 - O editor **não avisa nada**. O erro só aparece quando o sistema está rodando.
 
-### ✅ Depois — `depois/`
+### Depois — `depois/`
 
 Quebramos em **habilidades pequenas**:
 
@@ -63,7 +63,7 @@ interface NotificadorPush {
 Cada aparelho diz **só o que sabe fazer**:
 
 ```ts
-class Totem     implements LeitorQRCode, Impressora { ... }
+class Totem implements LeitorQRCode, Impressora { ... }
 class AppMobile implements LeitorQRCode, ProvedorDeLocalizacao, NotificadorPush { ... }
 ```
 
@@ -72,21 +72,21 @@ E cada função pede **só o que precisa**:
 ```ts
 function emitirComprovante(impressora: Impressora) { ... }
 
-emitirComprovante(totem); // ✅ ok
-emitirComprovante(app);   // ❌ o editor já sublinha em vermelho: "celular não é impressora"
+emitirComprovante(totem); // ok
+emitirComprovante(app); // o editor já sublinha em vermelho: "celular não é impressora"
 ```
 
 O erro que antes aparecia **com o sistema rodando** agora aparece **enquanto você digita**.
 
-## 🤔 Como saber se estou fazendo errado?
+## Como saber se estou fazendo errado?
 
 - Uma classe tem método que só faz `throw new Error('não suportado')`.
 - Uma classe tem método **vazio**, só porque a interface obrigou.
 - Você muda uma interface e precisa mexer em classes que **nem usam** aquele método.
 
-> 💡 Este princípio anda junto com o **L**: interfaces grandes demais costumam gerar classes que "não cumprem a promessa".
+> Este princípio anda junto com o **L**: interfaces grandes demais costumam gerar classes que "não cumprem a promessa".
 
-## 📁 Arquivos
+## Arquivos
 
 ```
 04-isp/
@@ -107,9 +107,9 @@ O erro que antes aparecia **com o sistema rodando** agora aparece **enquanto voc
     └── index.ts
 ```
 
-## ▶️ Rodando
+## Rodando
 
 ```bash
-npm run isp:antes    # o celular tenta imprimir e dá erro
+npm run isp:antes # o celular tenta imprimir e dá erro
 npm run isp:depois
 ```

@@ -2,17 +2,17 @@
 
 Aqui juntamos tudo num fluxo só, um pouco mais parecido com um sistema real (mas ainda bem simples).
 
-## 🧠 Relembrando com os exemplos do dia a dia
+## Relembrando com os exemplos do dia a dia
 
-| Letra | Princípio                | Exemplo               | Em uma frase                                     |
-| :---: | ------------------------ | --------------------- | ------------------------------------------------ |
-| **S** | Responsabilidade única   | 🍽️ Restaurante        | Cada um cuida de um assunto só                   |
-| **O** | Aberto/Fechado           | 📱 Celular e apps     | Para coisa nova, crie — não edite o que funciona |
-| **L** | Liskov                   | 🚗 Locadora de carros | A filha tem que cumprir o que a mãe promete      |
-| **I** | Segregação de interfaces | 📺 Controle remoto    | Não obrigue ninguém a ter botões que não usa     |
-| **D** | Inversão de dependência  | 🔌 Tomada             | Receba as peças prontas, não solde na parede     |
+| Letra | Princípio                | Exemplo            | Em uma frase                                     |
+| :---: | ------------------------ | ------------------ | ------------------------------------------------ |
+| **S** | Responsabilidade única   | Restaurante        | Cada um cuida de um assunto só                   |
+| **O** | Aberto/Fechado           | Celular e apps     | Para coisa nova, crie — não edite o que funciona |
+| **L** | Liskov                   | Locadora de carros | A filha tem que cumprir o que a mãe promete      |
+| **I** | Segregação de interfaces | Controle remoto    | Não obrigue ninguém a ter botões que não usa     |
+| **D** | Inversão de dependência  | Tomada             | Receba as peças prontas, não solde na parede     |
 
-## ❌ Antes — `antes/`
+## Antes — `antes/`
 
 Uma classe **faz-tudo** que quebra os 5 de uma vez:
 
@@ -24,7 +24,7 @@ Uma classe **faz-tudo** que quebra os 5 de uma vez:
 | **I** | Recebe um formulário com campos de **todos** os métodos. Dá para mandar GPS num check-in por QR Code e o editor não reclama |
 | **D** | Cria o banco e o WhatsApp lá dentro (fio soldado na parede)                                                                 |
 
-## ✅ Depois — `depois/`
+## Depois — `depois/`
 
 Cada pasta tem um papel:
 
@@ -53,16 +53,16 @@ index.ts ──▶ infra/ ──▶ portas/ ◀── casos-de-uso/ ──▶ do
                                          └──▶ metodos/
 ```
 
-👉 `dominio/` e `casos-de-uso/` **nunca** importam nada de `infra/`.
+`dominio/` e `casos-de-uso/` **nunca** importam nada de `infra/`.
 É como o manual da empresa: ele diz "use a máquina de café", mas não diz a marca.
 
-## 📁 Arquivos
+## Arquivos
 
 ```
 06-tudo-junto/
 ├── antes/
-│   ├── checkin-service.ts                  ← ❌ a classe faz-tudo
-│   ├── dados-checkin-type.ts               ← ❌ formulário com campos de todos os métodos
+│   ├── checkin-service.ts                  ← a classe faz-tudo
+│   ├── dados-checkin-type.ts               ← formulário com campos de todos os métodos
 │   ├── postgres-client.ts
 │   ├── whatsapp-api.ts
 │   └── index.ts
@@ -92,7 +92,7 @@ index.ts ──▶ infra/ ──▶ portas/ ◀── casos-de-uso/ ──▶ do
     └── index.ts                            ← onde tudo é montado
 ```
 
-## ▶️ Rodando
+## Rodando
 
 ```bash
 npm run tudo-junto:antes
