@@ -14,12 +14,12 @@ Imagine um restaurante com **um único funcionário** que cozinha, atende, cobra
 
 Agora imagine o restaurante organizado:
 
-| Pessoa       | Faz o quê        |
-|--------------|------------------|
-| Cozinheiro   | Cozinha          |
-| Garçom       | Atende           |
-| Caixa        | Cobra            |
-| Gerente      | Organiza a equipe |
+| Pessoa     | Faz o quê         |
+| ---------- | ----------------- |
+| Cozinheiro | Cozinha           |
+| Garçom     | Atende            |
+| Caixa      | Cobra             |
+| Gerente    | Organiza a equipe |
 
 Mudou o cardápio? Só o cozinheiro precisa saber. **Cada mudança afeta uma pessoa só.**
 
@@ -47,12 +47,12 @@ realizarCheckin() {
 
 **Por que isso é ruim?**
 
-| Se alguém pedir…                     | Onde precisa mexer?  |
-|--------------------------------------|----------------------|
-| "Deixa fazer check-in 1h antes"      | `CheckinService`     |
-| "Troca o banco de dados"             | `CheckinService`     |
-| "Muda o texto do WhatsApp"           | `CheckinService`     |
-| "Manda o log pra outro lugar"        | `CheckinService`     |
+| Se alguém pedir…                | Onde precisa mexer? |
+| ------------------------------- | ------------------- |
+| "Deixa fazer check-in 1h antes" | `CheckinService`    |
+| "Troca o banco de dados"        | `CheckinService`    |
+| "Muda o texto do WhatsApp"      | `CheckinService`    |
+| "Manda o log pra outro lugar"   | `CheckinService`    |
 
 Sempre o mesmo arquivo. Quem mexe no texto do WhatsApp pode, sem querer, quebrar a regra de horário.
 
@@ -60,13 +60,13 @@ Sempre o mesmo arquivo. Quem mexe no texto do WhatsApp pode, sem querer, quebrar
 
 Dividimos o trabalho, igual ao restaurante:
 
-| Classe               | Apelido         | Faz o quê               |
-|----------------------|-----------------|-------------------------|
-| `RegrasDeCheckin`    | 👮 o fiscal      | Confere as regras       |
-| `CheckinRepository`  | 🗄️ o arquivista  | Guarda os check-ins     |
-| `NotificadorCheckin` | 📬 o carteiro    | Avisa a pessoa          |
-| `Logger`             | 📝 o anotador    | Escreve o log           |
-| `CheckinService`     | 👔 o gerente     | Diz quem faz o quê      |
+| Classe               | Apelido         | Faz o quê           |
+| -------------------- | --------------- | ------------------- |
+| `RegrasDeCheckin`    | 👮 o fiscal     | Confere as regras   |
+| `CheckinRepository`  | 🗄️ o arquivista | Guarda os check-ins |
+| `NotificadorCheckin` | 📬 o carteiro   | Avisa a pessoa      |
+| `Logger`             | 📝 o anotador   | Escreve o log       |
+| `CheckinService`     | 👔 o gerente    | Diz quem faz o quê  |
 
 O gerente fica assim — dá para entender o processo inteiro em 4 linhas:
 

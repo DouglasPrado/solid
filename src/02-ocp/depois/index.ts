@@ -19,7 +19,13 @@ const validador = new ValidadorDeCheckin([
   new CheckinPorNfc(), // <- método novo: só colocar na lista
 ]);
 
-console.log('QR Code:', validador.validar({ metodo: 'QRCODE', qrCodeLido: 'UNIDADE-123' }, unidade));
-console.log('Geo:', validador.validar({ metodo: 'GEOLOCALIZACAO', latitude: -23.5505, longitude: -46.6334 }, unidade));
+console.log(
+  'QR Code:',
+  validador.validar({ metodo: 'QRCODE', qrCodeLido: 'UNIDADE-123' }, unidade),
+);
+console.log(
+  'Geo:',
+  validador.validar({ metodo: 'GEOLOCALIZACAO', latitude: -23.5505, longitude: -46.6334 }, unidade),
+);
 console.log('Recepção:', validador.validar({ metodo: 'RECEPCAO', atendenteId: 'at-9' }, unidade));
 console.log('NFC:', validador.validar({ metodo: 'NFC', pulseiraNfc: 'NFC-777' }, unidade));

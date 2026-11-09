@@ -25,7 +25,7 @@ A classe cria sozinha as peças que usa — fio soldado na parede:
 
 ```ts
 class CheckinService {
-  private db = new PostgresClient();   // ⚠️ soldado
+  private db = new PostgresClient(); // ⚠️ soldado
   private whatsapp = new WhatsAppApi(); // ⚠️ soldado
 }
 ```
@@ -56,8 +56,8 @@ class CheckinService {
 
 ```ts
 new CheckinService(new PostgresCheckinRepository(), new WhatsAppNotificador()); // produção
-new CheckinService(new PostgresCheckinRepository(), new EmailNotificador());    // trocou para e-mail
-new CheckinService(new InMemoryCheckinRepository(), new NotificadorSpy());      // teste
+new CheckinService(new PostgresCheckinRepository(), new EmailNotificador()); // trocou para e-mail
+new CheckinService(new InMemoryCheckinRepository(), new NotificadorSpy()); // teste
 ```
 
 O `CheckinService` é **o mesmo** nos três casos. Nenhuma linha dele mudou.
@@ -90,6 +90,7 @@ Assim dá para testar o check-in **sem banco e sem WhatsApp de verdade**.
 - Trocar de fornecedor (ex.: Twilio → Zenvia) obriga a mexer na regra de negócio.
 
 > 💡 **Palavras que você vai ouvir por aí:**
+>
 > - **Injeção de dependência** = entregar as peças prontas pelo construtor (o que fizemos aqui).
 > - **Container de DI** (NestJS, tsyringe…) = ferramenta que faz essa entrega automaticamente.
 

@@ -4,38 +4,38 @@ Aqui juntamos tudo num fluxo só, um pouco mais parecido com um sistema real (ma
 
 ## 🧠 Relembrando com os exemplos do dia a dia
 
-| Letra | Princípio              | Exemplo              | Em uma frase                                      |
-|:-----:|------------------------|----------------------|---------------------------------------------------|
-| **S** | Responsabilidade única | 🍽️ Restaurante        | Cada um cuida de um assunto só                    |
-| **O** | Aberto/Fechado         | 📱 Celular e apps     | Para coisa nova, crie — não edite o que funciona  |
-| **L** | Liskov                 | 🚗 Locadora de carros | A filha tem que cumprir o que a mãe promete       |
-| **I** | Segregação de interfaces | 📺 Controle remoto  | Não obrigue ninguém a ter botões que não usa      |
-| **D** | Inversão de dependência | 🔌 Tomada            | Receba as peças prontas, não solde na parede      |
+| Letra | Princípio                | Exemplo               | Em uma frase                                     |
+| :---: | ------------------------ | --------------------- | ------------------------------------------------ |
+| **S** | Responsabilidade única   | 🍽️ Restaurante        | Cada um cuida de um assunto só                   |
+| **O** | Aberto/Fechado           | 📱 Celular e apps     | Para coisa nova, crie — não edite o que funciona |
+| **L** | Liskov                   | 🚗 Locadora de carros | A filha tem que cumprir o que a mãe promete      |
+| **I** | Segregação de interfaces | 📺 Controle remoto    | Não obrigue ninguém a ter botões que não usa     |
+| **D** | Inversão de dependência  | 🔌 Tomada             | Receba as peças prontas, não solde na parede     |
 
 ## ❌ Antes — `antes/`
 
 Uma classe **faz-tudo** que quebra os 5 de uma vez:
 
-| Letra | O que está errado |
-|:-----:|-------------------|
-| **S** | Confere horário, confere o método, salva, manda WhatsApp e escreve log — tudo na mesma classe |
-| **O** | Um `switch` com os métodos. Método novo = editar a classe |
-| **L** | O online é uma "exceção" que pula as conferências |
+| Letra | O que está errado                                                                                                           |
+| :---: | --------------------------------------------------------------------------------------------------------------------------- |
+| **S** | Confere horário, confere o método, salva, manda WhatsApp e escreve log — tudo na mesma classe                               |
+| **O** | Um `switch` com os métodos. Método novo = editar a classe                                                                   |
+| **L** | O online é uma "exceção" que pula as conferências                                                                           |
 | **I** | Recebe um formulário com campos de **todos** os métodos. Dá para mandar GPS num check-in por QR Code e o editor não reclama |
-| **D** | Cria o banco e o WhatsApp lá dentro (fio soldado na parede) |
+| **D** | Cria o banco e o WhatsApp lá dentro (fio soldado na parede)                                                                 |
 
 ## ✅ Depois — `depois/`
 
 Cada pasta tem um papel:
 
-| Pasta           | Papel | Exemplo do dia a dia |
-|-----------------|-------|----------------------|
-| `dominio/`      | As regras e os dados do negócio | O "manual" da empresa |
-| `metodos/`      | Um arquivo para cada jeito de fazer check-in | Os apps instalados |
-| `portas/`       | Os "encaixes padrão" (interfaces) | As tomadas |
-| `infra/`        | As peças reais (banco, WhatsApp, log) | Os aparelhos |
-| `casos-de-uso/` | Quem coordena o fluxo | O gerente |
-| `index.ts`      | Onde tudo é montado e ligado | O dia da inauguração |
+| Pasta           | Papel                                        | Exemplo do dia a dia  |
+| --------------- | -------------------------------------------- | --------------------- |
+| `dominio/`      | As regras e os dados do negócio              | O "manual" da empresa |
+| `metodos/`      | Um arquivo para cada jeito de fazer check-in | Os apps instalados    |
+| `portas/`       | Os "encaixes padrão" (interfaces)            | As tomadas            |
+| `infra/`        | As peças reais (banco, WhatsApp, log)        | Os aparelhos          |
+| `casos-de-uso/` | Quem coordena o fluxo                        | O gerente             |
+| `index.ts`      | Onde tudo é montado e ligado                 | O dia da inauguração  |
 
 ### Onde cada princípio aparece
 

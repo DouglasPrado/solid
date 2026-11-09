@@ -13,7 +13,10 @@ export class CheckinPorGeolocalizacao implements MetodoDeCheckin {
 
   validar(dados: DadosCheckin, unidade: Unidade): boolean {
     if (dados.latitude === undefined || dados.longitude === undefined) return false;
-    const distancia = Math.hypot(dados.latitude - unidade.latitude, dados.longitude - unidade.longitude);
+    const distancia = Math.hypot(
+      dados.latitude - unidade.latitude,
+      dados.longitude - unidade.longitude,
+    );
     return distancia < this.raioMaximo;
   }
 }

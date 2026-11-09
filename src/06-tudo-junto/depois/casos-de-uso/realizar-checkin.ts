@@ -37,7 +37,11 @@ export class RealizarCheckin {
       throw new Error(`Prova de check-in inválida (${metodo.nome})`);
     }
 
-    await this.repo.salvar({ agendamentoId: agendamento.id, metodo: metodo.nome, realizadoEm: agora });
+    await this.repo.salvar({
+      agendamentoId: agendamento.id,
+      metodo: metodo.nome,
+      realizadoEm: agora,
+    });
     await this.notificador.enviar(
       agendamento.usuarioContato,
       `Olá ${agendamento.usuarioNome}, check-in confirmado!`,

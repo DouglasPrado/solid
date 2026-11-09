@@ -41,7 +41,11 @@ Uma função que processa "qualquer check-in" funciona com o presencial… e **q
 E o "conserto" mais comum piora tudo:
 
 ```ts
-if (c instanceof CheckinOnline) { pula } else { faz }
+if (c instanceof CheckinOnline) {
+  pula;
+} else {
+  faz;
+}
 ```
 
 Agora **todo lugar** do sistema precisa lembrar dessa exceção.
@@ -53,7 +57,7 @@ Fizemos um **combinado** com só o que **todos** conseguem cumprir:
 ```ts
 interface Checkin {
   agendamentoId: string;
-  concluir(): string;   // todo check-in sabe se concluir
+  concluir(): string; // todo check-in sabe se concluir
 }
 ```
 

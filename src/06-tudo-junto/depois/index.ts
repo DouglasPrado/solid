@@ -35,7 +35,10 @@ async function main() {
   const online = new CheckinOnline();
 
   await realizarCheckin.executar(agendamento('ag-1'), qrCode, { qrCode: 'UNIDADE-123' });
-  await realizarCheckin.executar(agendamento('ag-2'), geo, { latitude: -23.5505, longitude: -46.6334 });
+  await realizarCheckin.executar(agendamento('ag-2'), geo, {
+    latitude: -23.5505,
+    longitude: -46.6334,
+  });
   await realizarCheckin.executar(agendamento('ag-3'), online, { tokenSala: 'abc' });
 
   // Tente tirar o comentário da linha abaixo:

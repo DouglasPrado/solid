@@ -17,10 +17,10 @@ Um controle bom tem **só os botões que funcionam** naquela TV.
 
 O check-in pode ser feito em dois aparelhos:
 
-| Aparelho            | Lê QR Code | Tem GPS | Imprime | Manda notificação |
-|---------------------|:----------:|:-------:|:-------:|:-----------------:|
-| 🖥️ Totem da recepção | ✅         | ❌      | ✅      | ❌                |
-| 📱 App no celular    | ✅         | ✅      | ❌      | ✅                |
+| Aparelho             | Lê QR Code | Tem GPS | Imprime | Manda notificação |
+| -------------------- | :--------: | :-----: | :-----: | :---------------: |
+| 🖥️ Totem da recepção |     ✅     |   ❌    |   ✅    |        ❌         |
+| 📱 App no celular    |     ✅     |   ✅    |   ❌    |        ✅         |
 
 ### ❌ Antes — `antes/`
 
@@ -46,10 +46,18 @@ Resultado:
 Quebramos em **habilidades pequenas**:
 
 ```ts
-interface LeitorQRCode          { lerQRCode(); }
-interface ProvedorDeLocalizacao { obterGeolocalizacao(); }
-interface Impressora            { imprimirComprovante(); }
-interface NotificadorPush       { enviarPush(); }
+interface LeitorQRCode {
+  lerQRCode();
+}
+interface ProvedorDeLocalizacao {
+  obterGeolocalizacao();
+}
+interface Impressora {
+  imprimirComprovante();
+}
+interface NotificadorPush {
+  enviarPush();
+}
 ```
 
 Cada aparelho diz **só o que sabe fazer**:
