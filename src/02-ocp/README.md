@@ -88,10 +88,3 @@ new ValidadorDeCheckin([
     ├── unidade-type.ts
     └── index.ts
 ```
-
-## Rodando
-
-```bash
-npm run ocp:antes
-npm run ocp:depois
-```

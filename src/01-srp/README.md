@@ -105,10 +105,3 @@ realizarCheckin(agendamento, agora) {
     ├── checkin-service.ts      ← gerente
     └── index.ts
 ```
-
-## Rodando
-
-```bash
-npm run srp:antes
-npm run srp:depois
-```

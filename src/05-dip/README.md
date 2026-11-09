@@ -117,10 +117,3 @@ Assim dá para testar o check-in **sem banco e sem WhatsApp de verdade**.
     │   └── notificador-spy.ts
     └── index.ts                             ← onde a gente "liga na tomada"
 ```
-
-## Rodando
-
-```bash
-npm run dip:antes
-npm run dip:depois
-```

@@ -61,44 +61,7 @@ Só de olhar o nome do arquivo você já sabe o que tem dentro:
 Exemplo lado a lado: `checkin-repository-interface.ts` é a **tomada** (a lista de obrigações),
 e `postgres-checkin-repository.ts` é a **classe** que encaixa nela.
 
-**Ordem de leitura sugerida:** README da pasta → `antes/` → `depois/` → rode os dois e compare.
-
-## Como rodar
-
-```bash
-npm install
-
-npm run srp:antes && npm run srp:depois
-npm run ocp:antes && npm run ocp:depois
-npm run lsp:antes && npm run lsp:depois
-npm run isp:antes && npm run isp:depois
-npm run dip:antes && npm run dip:depois
-npm run tudo-junto:antes && npm run tudo-junto:depois
-
-npm run exemplos # roda todos os exemplos de uma vez
-```
-
-## Padrões do projeto
-
-Para o código ficar sempre com a mesma cara, não importa quem escreveu:
-
-| Ferramenta                      | Cuida de quê                                                                          | Comando                                   |
-| ------------------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------- |
-| **TypeScript**                  | Erros de tipo                                                                         | `npm run typecheck`                       |
-| **ESLint**                      | Regras de código (ex.: classes em `PascalCase`, `import type` para tipos)             | `npm run lint` / `npm run lint:fix`       |
-| **Prettier**                    | Formatação (aspas simples, ponto e vírgula, 2 espaços, até 100 colunas)               | `npm run format` / `npm run format:check` |
-| **Verificador de nomes**        | Um item por arquivo + padrão `-interface.ts` / `-type.ts` + nomes em kebab-case       | `npm run lint:nomes`                      |
-| **EditorConfig**                | Mesmo jeito de salvar arquivos (UTF-8, fim de linha LF, 2 espaços) em qualquer editor | automático                                |
-| **GitHub Actions** (`.github/`) | Roda tudo acima a cada push e pull request                                            | automático                                |
-
-**Antes de subir alguma mudança, rode:**
-
-```bash
-npm run check # typecheck + lint + nomes + formatação + todos os exemplos
-```
-
-> No VS Code, instale as extensões recomendadas (ele sugere sozinho ao abrir o projeto).
-> Assim o código é formatado e corrigido automaticamente toda vez que você salva.
+**Ordem de leitura sugerida:** README da pasta → `antes/` → `depois/`.
 
 ## Glossário (palavras que aparecem no código)
 

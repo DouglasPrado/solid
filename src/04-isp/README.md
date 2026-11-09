@@ -106,10 +106,3 @@ O erro que antes aparecia **com o sistema rodando** agora aparece **enquanto voc
     ├── coordenada-type.ts
     └── index.ts
 ```
-
-## Rodando
-
-```bash
-npm run isp:antes # o celular tenta imprimir e dá erro
-npm run isp:depois
-```

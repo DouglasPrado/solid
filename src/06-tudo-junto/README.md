@@ -91,10 +91,3 @@ index.ts ──▶ infra/ ──▶ portas/ ◀── casos-de-uso/ ──▶ do
     │   └── realizar-checkin.ts             ← o gerente
     └── index.ts                            ← onde tudo é montado
 ```
-
-## Rodando
-
-```bash
-npm run tudo-junto:antes
-npm run tudo-junto:depois
-```

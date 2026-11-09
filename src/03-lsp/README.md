@@ -99,10 +99,3 @@ for (const c of checkins) {
     ├── coordenada-type.ts
     └── index.ts
 ```
-
-## Rodando
-
-```bash
-npm run lsp:antes # vai mostrar o erro
-npm run lsp:depois # funciona com os dois
-```
